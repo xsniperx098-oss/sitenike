@@ -1,0 +1,268 @@
+.sacola-page {
+  min-height: 100vh;
+  background: white;
+  padding: 30px 40px;
+}
+
+.sacola-conteudo {
+  display: flex;
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sacola-esquerda {
+  flex: 1;
+}
+
+.sacola-titulo span {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.sacola-titulo h1 {
+  font-size: 28px;
+  margin: 8px 0 2px;
+}
+
+.sacola-titulo p {
+  margin: 0 0 18px;
+  font-size: 13px;
+}
+
+.produto-adicionado {
+  background: #efff9b;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.produto-sacola {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 10px;
+  gap: 15px;
+}
+
+.produto-imagem {
+  width: 165px;
+  height: 130px;
+  background: white;
+}
+
+.produto-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.produto-info {
+  flex: 1;
+}
+
+.produto-info h2 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.produto-info p {
+  font-size: 12px;
+  margin: 4px 0;
+  color: #666;
+}
+
+.produto-opcoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.produto-opcoes select {
+  padding: 6px;
+  border: 1px solid #aaa;
+}
+
+.quantidade {
+  display: flex;
+  border: 1px solid #aaa;
+  background: white;
+}
+
+.quantidade button,
+.quantidade span {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remover {
+  margin-top: 10px;
+  border: none;
+  background: none;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.produto-preco {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.entrega {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.entrega > div {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.entrega h3,
+.complete h3 {
+  font-size: 13px;
+  margin: 0 0 5px;
+}
+
+.entrega p,
+.complete p {
+  font-size: 11px;
+  color: #666;
+}
+
+.cep {
+  display: flex;
+}
+
+.cep input {
+  padding: 8px;
+  width: 120px;
+  border: 1px solid #aaa;
+}
+
+.cep button {
+  border: 1px solid #aaa;
+  background: white;
+  padding: 8px 15px;
+  font-weight: bold;
+}
+
+.entrega-endereco p {
+  margin: 5px 0;
+}
+
+.complete {
+  margin-top: 15px;
+}
+
+.extras {
+  display: flex;
+  gap: 10px;
+}
+
+.extra {
+  width: 180px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.extra img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+}
+
+.extra strong {
+  font-size: 12px;
+}
+
+.extra span {
+  font-size: 11px;
+  margin: 4px 0;
+}
+
+.extra button {
+  border: 1px solid #aaa;
+  background: white;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.resumo {
+  width: 280px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 15px;
+  align-self: flex-start;
+}
+
+.resumo h2 {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+.total {
+  font-size: 13px;
+}
+
+.cupom {
+  margin-top: 30px;
+}
+
+.cupom h3 {
+  font-size: 12px;
+}
+
+.cupom div {
+  display: flex;
+}
+
+.cupom input {
+  width: 160px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.cupom button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 8px;
+}
+
+.pagamento {
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #caff00;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.proxima-etapa {
+  text-align: center;
+  font-size: 10px;
+  color: #666;
+  margin-top: 18px;
+}

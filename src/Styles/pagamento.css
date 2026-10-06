@@ -1,0 +1,529 @@
+* {
+  box-sizing: border-box;
+}
+
+.pagamento-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.pagamento-container {
+  padding: 8px 14px 40px;
+}
+
+.breadcrumb {
+  color: #aaa;
+  font-size: 7px;
+  margin-bottom: 5px;
+}
+
+.pagamento-container > h1 {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: .3px;
+  margin: 0;
+}
+
+.pagamento-subtitle {
+  font-size: 11px;
+  color: #555;
+  margin: 2px 0 25px;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.pagamento-layout {
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(500px, 1fr)
+    200px;
+
+  gap: 17px;
+}
+
+
+/* =========================
+   MÉTODOS
+========================= */
+
+.metodos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 7px;
+
+  margin-bottom: 17px;
+}
+
+.metodo {
+  height: 36px;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 9px;
+
+  background: #fafafa;
+
+  display: flex;
+  align-items: center;
+
+  padding: 5px 8px;
+
+  gap: 7px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  color: #111;
+}
+
+.metodo:hover {
+  background: #f3f3f3;
+}
+
+.metodo.ativo {
+  background: #f1f1f1;
+}
+
+
+/* RADIO */
+
+.radio {
+  width: 11px;
+  height: 11px;
+
+  border: 1px solid #999;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.metodo.ativo .radio {
+  border-color: #111;
+}
+
+.metodo.ativo .radio span {
+  width: 7px;
+  height: 7px;
+
+  background: #cfff00;
+
+  border-radius: 50%;
+}
+
+
+/* ÍCONES */
+
+.metodo-icon {
+  width: 23px;
+
+  text-align: center;
+
+  font-size: 18px;
+}
+
+.metodo-icon.pix {
+  color: #12cdb9;
+}
+
+.metodo-icon.cartao {
+  color: #222;
+}
+
+.metodo-icon.boleto {
+  color: #222;
+}
+
+.metodo-icon.cripto {
+  color: #222;
+}
+
+
+/* TEXTO */
+
+.metodo-texto {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.metodo-texto strong {
+  font-size: 9px;
+}
+
+.metodo-texto small {
+  font-size: 8px;
+  color: #555;
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.cartao-form,
+.pagamento-box {
+  width: 100%;
+
+  background: #f3f3f3;
+
+  border-radius: 8px;
+
+  padding: 10px 13px 11px;
+}
+
+.cartao-form h2,
+.pagamento-box h2 {
+  font-size: 11px;
+
+  margin: 0 0 6px;
+}
+
+.campo {
+  margin-bottom: 4px;
+}
+
+.campo label {
+  display: block;
+
+  font-size: 8px;
+
+  margin-bottom: 2px;
+}
+
+.campo input {
+  width: 100%;
+  height: 20px;
+
+  border: 1px solid #888;
+
+  border-radius: 2px;
+
+  background: #fff;
+
+  padding: 2px 7px;
+
+  font-size: 8px;
+
+  outline: none;
+}
+
+.campo input:focus {
+  border-color: #111;
+}
+
+.campo-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 77px;
+}
+
+
+/* CHECKBOX */
+
+.check {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 4px;
+
+  font-size: 8px;
+}
+
+.check input {
+  width: 9px;
+  height: 9px;
+
+  accent-color: #cfff00;
+}
+
+
+/* =========================
+   PIX
+========================= */
+
+.pix-content {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.pix-symbol {
+  color: #12cdb9;
+
+  font-size: 28px;
+}
+
+.pagamento-box p {
+  font-size: 9px;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.aviso {
+  font-size: 8px;
+
+  margin: 7px 0;
+}
+
+.informacoes {
+  background: #f3f3f3;
+
+  padding: 7px 10px;
+
+  font-size: 8px;
+
+  line-height: 1.4;
+}
+
+.informacoes p {
+  margin: 0;
+}
+
+
+/* =========================
+   RESUMO
+========================= */
+
+.resumo {
+  background: #f5f5f5;
+
+  border-radius: 6px;
+
+  padding: 9px 8px;
+
+  min-height: 360px;
+}
+
+.resumo > h2 {
+  font-size: 12px;
+
+  margin: 0 0 10px;
+}
+
+
+/* PRODUTO */
+
+.produto {
+  display: flex;
+
+  gap: 7px;
+
+  margin-bottom: 16px;
+}
+
+.produto-img {
+  width: 80px;
+  height: 59px;
+
+  overflow: hidden;
+
+  background: #ddd;
+
+  border-radius: 3px;
+}
+
+.produto-img img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.produto-info {
+  display: flex;
+
+  flex-direction: column;
+
+  font-size: 9px;
+
+  line-height: 1.45;
+}
+
+.produto-info strong {
+  font-size: 10px;
+}
+
+
+/* ENTREGA */
+
+.entrega {
+  font-size: 9px;
+}
+
+.entrega h3 {
+  font-size: 10px;
+
+  margin: 0 0 5px;
+}
+
+.entrega p {
+  color: #555;
+
+  margin: 0 0 8px;
+}
+
+
+/* VALORES */
+
+.valor {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 9px;
+
+  margin: 9px 0;
+}
+
+.total {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 11px;
+
+  margin-top: 4px;
+}
+
+.parcelas {
+  text-align: right;
+
+  color: #777;
+
+  font-size: 7px;
+
+  margin-top: -7px;
+}
+
+
+/* =========================
+   FINALIZAR
+========================= */
+
+.finalizar {
+  width: 100%;
+  height: 24px;
+
+  border: 0;
+
+  border-radius: 15px;
+
+  background: #cfff00;
+
+  cursor: pointer;
+
+  margin-top: 14px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-size: 9px;
+
+  color: #111;
+}
+
+.finalizar:hover {
+  background: #bde900;
+}
+
+.finalizar span {
+  font-size: 14px;
+}
+
+.confirmacao {
+  text-align: center;
+
+  color: #777;
+
+  font-size: 6px;
+
+  margin-top: 5px;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 750px) {
+
+  .pagamento-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .resumo {
+    order: -1;
+  }
+
+  .metodos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .campo-row {
+    gap: 15px;
+  }
+}
+
+
+@media (max-width: 450px) {
+
+  .pagamento-container {
+    padding: 8px;
+  }
+
+  .metodos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metodo {
+    padding: 5px;
+  }
+
+  .metodo-texto strong {
+    font-size: 8px;
+  }
+
+  .metodo-texto small {
+    font-size: 7px;
+  }
+}

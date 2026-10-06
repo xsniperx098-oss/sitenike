@@ -1,0 +1,172 @@
+.infantil {
+  width: 100%;
+  padding: 0 16px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+}
+
+/* CAMINHO */
+
+.breadcrumb-infantil {
+  margin-top: 8px;
+  font-size: 7px;
+  color: #666;
+}
+
+/* TÍTULO */
+
+.titulo-infantil {
+  margin-top: 7px;
+  margin-bottom: 12px;
+}
+
+.titulo-infantil h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.titulo-infantil p {
+  margin: 3px 0 0;
+  font-size: 8px;
+  color: #444;
+}
+
+/* CONTEÚDO */
+
+.conteudo-infantil {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* FILTROS */
+
+.filtros-infantil {
+  width: 90px;
+  flex-shrink: 0;
+  border-right: 1px solid #ddd;
+  padding-right: 10px;
+}
+
+.filtros-infantil h2 {
+  margin: 0 0 7px;
+  font-size: 14px;
+}
+
+.filtro-infantil {
+  margin-bottom: 10px;
+}
+
+.filtro-infantil h3 {
+  margin: 0 0 4px;
+  font-size: 9px;
+}
+
+.filtro-infantil label {
+  display: block;
+  font-size: 7px;
+  margin-bottom: 3px;
+}
+
+.filtro-infantil input[type="checkbox"] {
+  width: 9px;
+  height: 9px;
+  margin: 0 3px 0 0;
+  vertical-align: middle;
+}
+
+/* TAMANHOS */
+
+.tamanhos-infantil {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.tamanhos-infantil button {
+  height: 17px;
+  background: white;
+  border: 1px solid #ddd;
+  font-size: 7px;
+  cursor: pointer;
+}
+
+.tamanhos-infantil .selecionado {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+/* CORES */
+
+.cores-infantil {
+  display: flex;
+  gap: 5px;
+}
+
+.cor-infantil {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: block;
+  border: 1px solid #ddd;
+}
+
+/* PREÇO */
+
+.preco-infantil {
+  width: 100%;
+  height: 18px;
+  margin-bottom: 4px;
+  padding: 3px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 7px;
+  outline: none;
+}
+
+/* PRODUTOS */
+
+.produtos-infantil {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.produto-card-infantil {
+  min-width: 0;
+}
+
+.produto-imagem-infantil {
+  width: 100%;
+  height: 135px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.produto-imagem-infantil img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.produto-card-infantil h3 {
+  margin: 4px 0 1px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.produto-card-infantil p {
+  margin: 0 0 1px;
+  font-size: 7px;
+  color: #777;
+}
+
+.produto-card-infantil strong {
+  font-size: 8px;
+  font-weight: 500;
+}
