@@ -1,48 +1,62 @@
-import "../Styles/Feminino.css";
+import "../Styles/feminino.css";
+import { useNavigate } from "react-router-dom";
+import { adicionarProdutoNaSacola, formatarPreco } from "../utils/sacola";
 
 import tenis1 from "../assets/tenis1.jpg";
 import tenis2 from "../assets/tenis2.jpg";
 import tenis3 from "../assets/tenis3.jpg";
 
 function Feminino() {
+  const navigate = useNavigate();
   const produtos = [
     {
+      id: "feminino-tenis-1",
       nome: "Nike Air Max 90",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis1,
     },
     {
+      id: "feminino-tenis-2",
       nome: "Nike Air Force 1",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis2,
     },
     {
+      id: "feminino-tenis-3",
       nome: "Nike Court Vision Low",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis3,
     },
     {
+      id: "feminino-tenis-4",
       nome: "Nike Revolution 7",
       categoria: "Corrida",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis1,
     },
     {
+      id: "feminino-tenis-5",
       nome: "Nike Waffle Debut",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis2,
     },
     {
+      id: "feminino-tenis-6",
       nome: "Nike Air Jordan 1",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis3,
     },
   ];
+
+  function adicionarNaSacola(produto) {
+    adicionarProdutoNaSacola({ ...produto, tamanho: "37" });
+    navigate("/sacola");
+  }
 
   return (
     <main className="feminino">
@@ -128,9 +142,21 @@ function Feminino() {
 
         <section className="produtos-feminino">
 
-          {produtos.map((produto, index) => (
-            <div className="produto-card-feminino" key={index}>
-
+          {produtos.map((produto) => (
+            <div
+              className="produto-card-feminino"
+              key={produto.id}
+              onClick={() => adicionarNaSacola(produto)}
+              onKeyDown={(evento) => {
+                if (evento.key === "Enter" || evento.key === " ") {
+                  evento.preventDefault();
+                  adicionarNaSacola(produto);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              style={{ cursor: "pointer" }}
+            >
               <div className="produto-imagem-feminino">
                 <img
                   src={produto.imagem}
@@ -142,7 +168,7 @@ function Feminino() {
 
               <p>{produto.categoria}</p>
 
-              <strong>{produto.preco}</strong>
+              <strong>{formatarPreco(produto.preco)}</strong>
 
             </div>
           ))}

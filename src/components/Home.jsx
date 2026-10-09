@@ -1,4 +1,6 @@
 import "../Styles/Home.css";
+import { useNavigate } from "react-router-dom";
+import { adicionarProdutoNaSacola, formatarPreco } from "../utils/sacola";
 
 import banner from "../assets/banner.jpg";
 import tenis1 from "../assets/tenis1.jpg";
@@ -6,26 +8,35 @@ import tenis2 from "../assets/tenis2.jpg";
 import tenis3 from "../assets/tenis3.jpg";
 
 function Home() {
+  const navigate = useNavigate();
   const produtos = [
     {
+      id: "home-tenis-1",
       imagem: tenis1,
       nome: "Nike Air Zoom Pegasus",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
     },
     {
+      id: "home-tenis-2",
       imagem: tenis2,
       nome: "Nike Air Max 90",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
     },
     {
+      id: "home-tenis-3",
       imagem: tenis3,
       nome: "Nike Blazer Mid 77",
       categoria: "Lifestyle",
-      preco: "R$ 399,99",
+      preco: 399.99,
     },
   ];
+
+  function adicionarNaSacola(produto) {
+    adicionarProdutoNaSacola({ ...produto, tamanho: "40" });
+    navigate("/sacola");
+  }
 
   return (
     <main>
@@ -85,7 +96,11 @@ function Home() {
 
             <div className="product" key={index}>
 
-              <div className="product-image">
+              <div
+                className="product-image"
+                onClick={() => adicionarNaSacola(produto)}
+                style={{ cursor: "pointer" }}
+              >
                 <img
                   src={produto.imagem}
                   alt={produto.nome}
@@ -100,7 +115,7 @@ function Home() {
                 </div>
 
                 <strong>
-                  {produto.preco}
+                  {formatarPreco(produto.preco)}
                 </strong>
 
               </div>

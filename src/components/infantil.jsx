@@ -1,48 +1,62 @@
-import "../Styles/Infantil.css";
+import "../Styles/infantil.css";
+import { useNavigate } from "react-router-dom";
+import { adicionarProdutoNaSacola, formatarPreco } from "../utils/sacola";
 
 import tenis1 from "../assets/tenis1.jpg";
 import tenis2 from "../assets/tenis2.jpg";
 import tenis3 from "../assets/tenis3.jpg";
 
 function Infantil() {
+  const navigate = useNavigate();
   const produtos = [
     {
+      id: "infantil-tenis-1",
       nome: "Nike Revolution 7",
       categoria: "Infantil",
-      preco: "R$ 299,99",
+      preco: 299.99,
       imagem: tenis1,
     },
     {
+      id: "infantil-tenis-2",
       nome: "Nike Air Max SC",
       categoria: "Infantil",
-      preco: "R$ 299,99",
+      preco: 299.99,
       imagem: tenis2,
     },
     {
+      id: "infantil-tenis-3",
       nome: "Nike Court Borough",
       categoria: "Infantil",
-      preco: "R$ 299,99",
+      preco: 299.99,
       imagem: tenis3,
     },
     {
+      id: "infantil-tenis-4",
       nome: "Nike Flex Runner",
       categoria: "Infantil",
-      preco: "R$ 279,99",
+      preco: 279.99,
       imagem: tenis1,
     },
     {
+      id: "infantil-tenis-5",
       nome: "Nike Star Runner",
       categoria: "Infantil",
-      preco: "R$ 279,99",
+      preco: 279.99,
       imagem: tenis2,
     },
     {
+      id: "infantil-tenis-6",
       nome: "Nike Air Jordan 1",
       categoria: "Infantil",
-      preco: "R$ 399,99",
+      preco: 399.99,
       imagem: tenis3,
     },
   ];
+
+  function adicionarNaSacola(produto) {
+    adicionarProdutoNaSacola({ ...produto, tamanho: "30" });
+    navigate("/sacola");
+  }
 
   return (
     <main className="infantil">
@@ -126,9 +140,21 @@ function Infantil() {
         {/* PRODUTOS */}
         <section className="produtos-infantil">
 
-          {produtos.map((produto, index) => (
-            <div className="produto-card-infantil" key={index}>
-
+          {produtos.map((produto) => (
+            <div
+              className="produto-card-infantil"
+              key={produto.id}
+              onClick={() => adicionarNaSacola(produto)}
+              onKeyDown={(evento) => {
+                if (evento.key === "Enter" || evento.key === " ") {
+                  evento.preventDefault();
+                  adicionarNaSacola(produto);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              style={{ cursor: "pointer" }}
+            >
               <div className="produto-imagem-infantil">
                 <img
                   src={produto.imagem}
@@ -140,7 +166,7 @@ function Infantil() {
 
               <p>{produto.categoria}</p>
 
-              <strong>{produto.preco}</strong>
+              <strong>{formatarPreco(produto.preco)}</strong>
 
             </div>
           ))}

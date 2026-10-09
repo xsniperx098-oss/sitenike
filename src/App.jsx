@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Masculino from "./components/Masculino";
-import Feminino from "./components/Feminino";
-import Infantil from "./components/Infantil";
-import Sacola from "./components/Sacola";
+import Masculino from "./components/masculino";
+import Feminino from "./components/feminino";
+import Infantil from "./components/infantil";
+import Sacola from "./components/sacola";
 import Pagamento from "./components/pagamento";
 import Finalizado from "./components/finalizado";
 
