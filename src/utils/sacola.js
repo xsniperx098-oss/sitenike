@@ -8,11 +8,13 @@ export function adicionarProdutoNaSacola(produto) {
     sacola = [];
   }
 
-  const existente = sacola.find((item) => item.id === produto.id);
+  const existente = sacola.find(
+    (item) => item.id === produto.id && item.tamanho === produto.tamanho
+  );
 
   if (existente) {
     sacola = sacola.map((item) =>
-      item.id === produto.id
+      item.id === produto.id && item.tamanho === produto.tamanho
         ? { ...item, ...produto, quantidade: Number(item.quantidade || 1) + 1 }
         : item
     );

@@ -1,10 +1,22 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../Styles/pagamento.css";
 
 function Pagamento() {
 
   const navigate = useNavigate();
+  const { state } = useLocation();
+
+  const produtos = Array.isArray(state?.produtos)
+    ? state.produtos
+    : lerProdutosDaSacola();
+  const subtotal = produtos.reduce(
+    (soma, produto) =>
+      soma + valorNumerico(produto.preco) * Number(produto.quantidade || 1),
+    0
+  );
+  const frete = produtos.length > 0 ? Number(state?.frete ?? 79.9) : 0;
+  const total = subtotal + frete;
 
   const [metodo, setMetodo] = useState("cartao");
 
@@ -181,7 +193,12 @@ function Pagamento() {
 
           {/* DIREITA */}
 
-          <ResumoPedido />
+          <ResumoPedido
+            produtos={produtos}
+            subtotal={subtotal}
+            frete={frete}
+            total={total}
+          />
 
         </div>
 
@@ -189,6 +206,34 @@ function Pagamento() {
 
     </div>
   );
+}
+
+function lerProdutosDaSacola() {
+  try {
+    const produtos = JSON.parse(localStorage.getItem("sacola") || "[]");
+    return Array.isArray(produtos) ? produtos : [];
+  } catch {
+    return [];
+  }
+}
+
+function dinheiro(valor) {
+  return Number(valor || 0).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
+
+function valorNumerico(valor) {
+  const direto = Number(valor);
+  if (Number.isFinite(direto)) return direto;
+
+  const convertido = Number(
+    String(valor || "")
+      .replace(/[^\d,-]/g, "")
+      .replace(",", ".")
+  );
+  return Number.isFinite(convertido) ? convertido : 0;
 }
 
 
@@ -378,7 +423,7 @@ function FormularioCartao() {
    RESUMO
 ===================================================== */
 
-function ResumoPedido() {
+function ResumoPedido({ produtos, subtotal, frete, total }) {
 
   const navigate = useNavigate();
 
@@ -391,34 +436,24 @@ function ResumoPedido() {
       </h2>
 
 
-      <div className="produto">
-
-        <div className="produto-img">
-
-          <img
-            src="/src/assets/tenis1.jpg"
-            alt="Nike Air Max"
-          />
-
-        </div>
-
-
-        <div className="produto-info">
-
-          <strong>
-            Nike Air Max
-          </strong>
-
-          <span>
-            Preto e branco
-          </span>
-
-          <span>
-            Tam. 40 - Qtd. 1
-          </span>
-
-        </div>
-
+      <div className="produtos-pedido">
+        {produtos.length === 0 ? (
+          <p>Sua sacola está vazia.</p>
+        ) : (
+          produtos.map((produto, indice) => (
+            <div className="produto" key={`${produto.id}-${indice}`}>
+              <div className="produto-img">
+                <img src={produto.imagem} alt={produto.nome} />
+              </div>
+              <div className="produto-info">
+                <strong>{produto.nome}</strong>
+                <span>{produto.categoria}</span>
+                <span>Tam. {produto.tamanho || "40"} - Qtd. {produto.quantidade || 1}</span>
+                <span>{dinheiro(valorNumerico(produto.preco) * Number(produto.quantidade || 1))}</span>
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
 
@@ -446,7 +481,7 @@ function ResumoPedido() {
         </span>
 
         <span>
-          R$ 399,99
+          {dinheiro(subtotal)}
         </span>
 
       </div>
@@ -459,7 +494,7 @@ function ResumoPedido() {
         </span>
 
         <span>
-          R$ 79,90
+          {dinheiro(frete)}
         </span>
 
       </div>
@@ -485,21 +520,26 @@ function ResumoPedido() {
         </strong>
 
         <strong>
-          R$ 479,89
+          {dinheiro(total)}
         </strong>
 
       </div>
 
 
       <div className="parcelas">
-        3x de R$ 159,96 sem juros
+        3x de {dinheiro(total / 3)} sem juros
       </div>
 
 
       <button
         type="button"
         className="finalizar"
-        onClick={() => navigate("/pagamento-finalizado")}
+        disabled={produtos.length === 0}
+        onClick={() =>
+          navigate("/pagamento-finalizado", {
+            state: { produtos, subtotal, frete, total },
+          })
+        }
       >
 
         Finalizar pedido

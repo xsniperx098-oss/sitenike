@@ -14,8 +14,10 @@ function Sacola() {
     }
   });
 
-  function removerProduto(id) {
-    const atualizados = produtos.filter((produto) => produto.id !== id);
+  function removerProduto(id, tamanho) {
+    const atualizados = produtos.filter(
+      (produto) => produto.id !== id || produto.tamanho !== tamanho
+    );
     localStorage.setItem("sacola", JSON.stringify(atualizados));
     setProdutos(atualizados);
   }
@@ -72,7 +74,7 @@ function Sacola() {
 
               <button
                 className="remover"
-                onClick={() => removerProduto(produto.id)}
+                onClick={() => removerProduto(produto.id, produto.tamanho)}
               >
                 Remover
               </button>

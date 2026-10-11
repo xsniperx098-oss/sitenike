@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -8,21 +8,21 @@ import Infantil from "./components/infantil";
 import Sacola from "./components/sacola";
 import Pagamento from "./components/pagamento";
 import Finalizado from "./components/finalizado";
+import Login from "./components/Login";
+import Cadastro from "./components/Cadastro";
+import Busca from "./components/Busca";
 
-function Pagina({ titulo }) {
-  return (
-    <div>
-      <h1>{titulo}</h1>
-    </div>
-  );
+function HeaderDaLoja() {
+  const { pathname } = useLocation();
+  if (pathname === "/login" || pathname === "/cadastro") return null;
+  return <Header />;
 }
-
 
 function App() {
   return (
     <BrowserRouter>
 
-      <Header />
+      <HeaderDaLoja />
 
       <Routes>
 
@@ -31,6 +31,10 @@ function App() {
           path="/"
           element={<Home />}
         />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/busca" element={<Busca />} />
 
 
         {/* CATEGORIAS */}
@@ -53,7 +57,7 @@ function App() {
         {/* PRODUTO */}
         <Route
           path="/produto"
-          element={<Pagina titulo="Produto" />}
+          element={<div><h1>Produto</h1></div>}
         />
 
 

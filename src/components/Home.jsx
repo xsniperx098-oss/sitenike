@@ -1,43 +1,13 @@
 import "../Styles/Home.css";
-import { useNavigate } from "react-router-dom";
-import { adicionarProdutoNaSacola, formatarPreco } from "../utils/sacola";
-
+import useTamanhoSacola from "../hooks/useTamanhoSacola";
+import SeletorTamanho from "./SeletorTamanho";
+import { formatarPreco } from "../utils/sacola";
+import { produtosHome as produtos } from "../data/catalogo";
 import banner from "../assets/banner.jpg";
-import tenis1 from "../assets/tenis1.jpg";
-import tenis2 from "../assets/tenis2.jpg";
-import tenis3 from "../assets/tenis3.jpg";
 
 function Home() {
-  const navigate = useNavigate();
-  const produtos = [
-    {
-      id: "home-tenis-1",
-      imagem: tenis1,
-      nome: "Nike Air Zoom Pegasus",
-      categoria: "Lifestyle",
-      preco: 399.99,
-    },
-    {
-      id: "home-tenis-2",
-      imagem: tenis2,
-      nome: "Nike Air Max 90",
-      categoria: "Lifestyle",
-      preco: 399.99,
-    },
-    {
-      id: "home-tenis-3",
-      imagem: tenis3,
-      nome: "Nike Blazer Mid 77",
-      categoria: "Lifestyle",
-      preco: 399.99,
-    },
-  ];
-
-  function adicionarNaSacola(produto) {
-    adicionarProdutoNaSacola({ ...produto, tamanho: "40" });
-    navigate("/sacola");
-  }
-
+  const { tamanhoSelecionado, erroTamanho, selecionarTamanho, adicionarNaSacola } =
+    useTamanhoSacola();
   return (
     <main>
 
@@ -90,6 +60,16 @@ function Home() {
 
         </div>
 
+        <div style={{ maxWidth: 190, marginBottom: 10 }}>
+          <SeletorTamanho
+            label="Escolha o tamanho dos tênis"
+            opcoes={[35, 36, 37, 38, 39, 40, 41, 42]}
+            valor={tamanhoSelecionado}
+            erro={erroTamanho}
+            aoSelecionar={selecionarTamanho}
+          />
+        </div>
+
         <div className="products-grid">
 
           {produtos.map((produto, index) => (
@@ -99,6 +79,14 @@ function Home() {
               <div
                 className="product-image"
                 onClick={() => adicionarNaSacola(produto)}
+                onKeyDown={(evento) => {
+                  if (evento.key === "Enter" || evento.key === " ") {
+                    evento.preventDefault();
+                    adicionarNaSacola(produto);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
                 style={{ cursor: "pointer" }}
               >
                 <img

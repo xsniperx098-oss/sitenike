@@ -339,6 +339,11 @@
 
 /* PRODUTO */
 
+.produtos-pedido {
+  max-height: 190px;
+  overflow-y: auto;
+}
+
 .produto {
   display: flex;
 

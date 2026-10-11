@@ -1,0 +1,86 @@
+.pagina-busca {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagina-busca > h1 {
+  margin: 0 0 24px;
+  font-size: 28px;
+}
+
+.busca-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.busca-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.busca-card > img {
+  width: 100%;
+  aspect-ratio: 1 / 0.9;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #f4f4f4;
+}
+
+.busca-card h2,
+.busca-card p {
+  margin: 0;
+}
+
+.busca-card h2 {
+  font-size: 16px;
+}
+
+.busca-card p {
+  color: #666;
+  font-size: 13px;
+}
+
+.busca-card strong {
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+.busca-card label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.busca-card select {
+  min-width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.busca-card small {
+  color: #b00020;
+  font-size: 12px;
+}
+
+.busca-card button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 24px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+
+.busca-vazia {
+  color: #555;
+}

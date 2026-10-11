@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "../Styles/Header.css";
+import { obterSessaoLocal, sairContaLocal } from "../utils/authLocal";
 
 function Header() {
+  const navigate = useNavigate();
+  const [termoBusca, setTermoBusca] = useState("");
+  const sessao = obterSessaoLocal();
+
+  function buscar(evento) {
+    evento.preventDefault();
+    const termo = termoBusca.trim();
+    if (termo) navigate(`/busca?q=${encodeURIComponent(termo)}`);
+  }
+
   return (
     <header className="header">
 
@@ -21,13 +33,30 @@ function Header() {
 
       <div className="header-right">
 
-        <div className="search">
-          <span>⌕</span>
+        {sessao ? (
+          <button
+            className="sair-conta"
+            type="button"
+            onClick={() => {
+              sairContaLocal();
+              navigate("/login");
+            }}
+          >
+            Sair
+          </button>
+        ) : (
+          <Link className="link-entrar" to="/login">Entrar</Link>
+        )}
+
+        <form className="search" onSubmit={buscar} role="search">
+          <button type="submit" aria-label="Buscar">⌕</button>
           <input
             type="text"
             placeholder="Buscar"
+            value={termoBusca}
+            onChange={(evento) => setTermoBusca(evento.target.value)}
           />
-        </div>
+        </form>
 
         <button>♡</button>
 
