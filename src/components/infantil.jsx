@@ -2,9 +2,12 @@ import "../Styles/infantil.css";
 import { useNavigate } from "react-router-dom";
 import { adicionarProdutoNaSacola, formatarPreco } from "../utils/sacola";
 
-import tenis1 from "../assets/tenis1.jpg";
-import tenis2 from "../assets/tenis2.jpg";
-import tenis3 from "../assets/tenis3.jpg";
+import infantil1 from "../assets/infantil1.png";
+import infantil2 from "../assets/infantil2.png";
+import infantil3 from "../assets/infantil3.png";
+import infantil4 from "../assets/infantil4.png";
+import infantil5 from "../assets/infantil5.png";
+import infantil6 from "../assets/infantil6.png";
 
 function Infantil() {
   const navigate = useNavigate();
@@ -14,42 +17,42 @@ function Infantil() {
       nome: "Nike Revolution 7",
       categoria: "Infantil",
       preco: 299.99,
-      imagem: tenis1,
+      imagem: infantil1,
     },
     {
       id: "infantil-tenis-2",
       nome: "Nike Air Max SC",
       categoria: "Infantil",
       preco: 299.99,
-      imagem: tenis2,
+      imagem: infantil2,
     },
     {
       id: "infantil-tenis-3",
       nome: "Nike Court Borough",
       categoria: "Infantil",
       preco: 299.99,
-      imagem: tenis3,
+      imagem: infantil3,
     },
     {
       id: "infantil-tenis-4",
       nome: "Nike Flex Runner",
       categoria: "Infantil",
       preco: 279.99,
-      imagem: tenis1,
+      imagem: infantil4,
     },
     {
       id: "infantil-tenis-5",
       nome: "Nike Star Runner",
       categoria: "Infantil",
       preco: 279.99,
-      imagem: tenis2,
+      imagem: infantil5,
     },
     {
       id: "infantil-tenis-6",
       nome: "Nike Air Jordan 1",
       categoria: "Infantil",
       preco: 399.99,
-      imagem: tenis3,
+      imagem: infantil6,
     },
   ];
 
@@ -105,17 +108,6 @@ function Infantil() {
               <button>33</button>
               <button>34</button>
               <button>35</button>
-            </div>
-          </div>
-
-          <div className="filtro-infantil">
-            <h3>Cor</h3>
-
-            <div className="cores-infantil">
-              <span className="cor-infantil preta"></span>
-              <span className="cor-infantil vermelha"></span>
-              <span className="cor-infantil cinza"></span>
-              <span className="cor-infantil verde"></span>
             </div>
           </div>
 

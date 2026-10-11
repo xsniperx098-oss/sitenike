@@ -2,9 +2,12 @@ import "../Styles/feminino.css";
 import { useNavigate } from "react-router-dom";
 import { adicionarProdutoNaSacola, formatarPreco } from "../utils/sacola";
 
-import tenis1 from "../assets/tenis1.jpg";
-import tenis2 from "../assets/tenis2.jpg";
-import tenis3 from "../assets/tenis3.jpg";
+import feminino1 from "../assets/feminino1.jpg";
+import feminino2 from "../assets/feminino2.jpg";
+import feminino3 from "../assets/feminino3.jpg";
+import feminino4 from "../assets/feminino4.jpg";
+import feminino5 from "../assets/feminino5.jpg";
+import feminino6 from "../assets/feminino6.jpg";
 
 function Feminino() {
   const navigate = useNavigate();
@@ -14,42 +17,42 @@ function Feminino() {
       nome: "Nike Air Max 90",
       categoria: "Lifestyle",
       preco: 399.99,
-      imagem: tenis1,
+      imagem: feminino1,
     },
     {
       id: "feminino-tenis-2",
       nome: "Nike Air Force 1",
       categoria: "Lifestyle",
       preco: 399.99,
-      imagem: tenis2,
+      imagem: feminino2,
     },
     {
       id: "feminino-tenis-3",
       nome: "Nike Court Vision Low",
       categoria: "Lifestyle",
       preco: 399.99,
-      imagem: tenis3,
+      imagem: feminino3,
     },
     {
       id: "feminino-tenis-4",
       nome: "Nike Revolution 7",
       categoria: "Corrida",
       preco: 399.99,
-      imagem: tenis1,
+      imagem: feminino4,
     },
     {
       id: "feminino-tenis-5",
       nome: "Nike Waffle Debut",
       categoria: "Lifestyle",
       preco: 399.99,
-      imagem: tenis2,
+      imagem: feminino5,
     },
     {
       id: "feminino-tenis-6",
       nome: "Nike Air Jordan 1",
       categoria: "Lifestyle",
       preco: 399.99,
-      imagem: tenis3,
+      imagem: feminino6,
     },
   ];
 
@@ -108,17 +111,6 @@ function Feminino() {
               <button>40</button>
               <button>41</button>
               <button>42</button>
-            </div>
-          </div>
-
-          <div className="filtro-feminino">
-            <h3>Cor</h3>
-
-            <div className="cores-feminino">
-              <span className="cor-feminina preta"></span>
-              <span className="cor-feminina vermelha"></span>
-              <span className="cor-feminina cinza"></span>
-              <span className="cor-feminina verde"></span>
             </div>
           </div>
 

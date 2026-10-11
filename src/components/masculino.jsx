@@ -135,16 +135,6 @@ function Masculino() {
           </div>
 
           <div className="filtro-masculino">
-            <h3>Cor</h3>
-            <div className="cores-masculino">
-              <span className="cor-masculina preta"></span>
-              <span className="cor-masculina vermelha"></span>
-              <span className="cor-masculina cinza"></span>
-              <span className="cor-masculina verde"></span>
-            </div>
-          </div>
-
-          <div className="filtro-masculino">
             <h3>PreÃ§o</h3>
             <input
               className="preco-masculino"
